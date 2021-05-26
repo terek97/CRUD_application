@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public String getUserByID(@PathVariable("id") int id, Model model) {
+    public String getUserByID(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
 //        System.out.println(userService.getUserById(id));
 
@@ -47,7 +47,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public RedirectView removeUser(@PathVariable("id") int id) {
+    public RedirectView removeUser(@PathVariable("id") Long id) {
 //        System.out.println(user.getId());
         userService.removeUser(id);
         return new RedirectView("/");

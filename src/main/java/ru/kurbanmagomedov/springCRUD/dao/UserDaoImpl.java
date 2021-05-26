@@ -20,7 +20,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getUserById(int id) {
+    public User getUserById(Long id) {
         TypedQuery<User> query = entityManager.createQuery(
                 "select user  from User user where user.id = :id", User.class);
         query.setParameter("id", id);
@@ -33,7 +33,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void removeUser(int id) {
+    public void removeUser(Long id) {
         User user = entityManager.find(User.class, id);
         entityManager.remove(user);
     }
